@@ -1,0 +1,129 @@
+# sql structured query language WE CAN USE HERE ORACLE
+
+first security , data size is imp
+
+dbms
+database management system
+data must be formed in the rows and columns
+
+data redundancy -it means same data present in the different different places
+
+#RDBMS--SOFTWARE USED FIRST 3 ORACLE , MYSQL , POSTGRESQL,MS-SQL(SQL SERVER)
+
+
+
+#SQL-IT MEANS STRUCTURED QQUERY LANGUAGE
+IT IS THE ONLY LANGUAGE THAT CAN BE USED FOR THE DATABASE
+
+(NOSQL IS USED ONLY FOR WEB APPS)
+
+DESKTOP -APP
+WEB APPS
+
+sql is language that is used to perform operation on data and communicate with database
+
+dbms                                             rdbms
+- it stands for database management system      - it stand s for relationl database management system
+- it does not provide any data security   data security is            high
+-single user system                         multiuser system
+-programmers need to write procedures to perform operations - lots of inbuilt functions are available so no need to write procedures to perform all operations
+
+
+
+       # SQL AND SELECT STATEMENTS  (intro to sql and select
+ # in the sql we can store any type of data like application  data
+
+we can use the sql  because it can provide specific structure or syntax
+ddl , dml dck dql it is divided in this 4 language
+
+# DQL - DATA DEFINATION LANGUAGE
+
+CREATE - IT IS USED TO CREATE NEW OBJECTS IN DB
+ALTER - IT IS USED TO CHANGE THE TABLE STRUCTURE
+DROP - IT IS USED TO DELETE DB OBJECTS
+TRUNCATE- IT WILL ALL RECORDS FROM TABLES
+RENAME- IT IS USED TO RENAME THE TABLE NAME
+
+# DML (DATA MANIPULATION LANGUAGE)
+-insert- it will insert new record in a table
+update- it will change existing data
+delete - it will delete record from table
+
+# dql(DATA QUERY LANGUAGE)
+-select- it will retrieve records from one or more tables
+
+#(dcl)- data control language
+grant= it will allow i.e grant access to user
+revoke - it will remove provided access from user
+
+
+sql and select statement 
+The SELECT command in SQL is used to retrieve or fetch data from a database table
+syntax
+
+SELECT column_name
+FROM table_name;
+ex student table 
+student_id name	age	city	             marks
+1	Prasad	23	     Pune	       85
+2	Rahul	22	     Mumbai	       72
+3	Amit	21	     Pune	       90
+4	Sneha	22	    Nashik	       65
+5	Priya	20	    Mumbai	       78
+
+Q1. write a query to display the student name and their roll number 
+
+select s_name, r_rollno from student;
+
+all columns 
+select * from student;
+
+assignment 
+refer the table student(rollno, name , city, contact, email, bdate , per)
+write a query to display student name  and their contact along with email
+-> 
+
+select name,contact, email from student;
+
+2. write query to display student name, roll no and their percentage
+select name , roll no , per from student;
+
+3. write a query to display student name and their bdate and city 
+-> select name , bdate , city from student;
+
+4.write a query to display student name their roll number and email
+-> select name , rollno, email from student ;
+
+5. write aquery to display student details .
+-> select * from student ;
+
+#Display unique cities..> 
+SELECT DISTINCT city
+FROM student;
+
+very important 
+
+. Important SELECT clauses
+Clause	     Purpose
+SELECT	     Specifies columns
+FROM	      Specifies the table
+WHERE	       Filters rows
+DISTINCT       Removes duplicate results
+ORDER BY      Sorts results
+GROUP BY      Groups rows
+HAVING	      Filters groups
+
+
+#OPERATORS-SQL operators are symbols or keywords used to perform operations on data in a database.
+They help us filter records, compare values, perform calculations, and combine conditions.
+
+ARITHMETIC OPERATORS
+OPERATORS (+,-,*,%)
+COMPARISON(=,<>,>,<,>=,<=)
+LOGICAL(AND , OR , NOT)
+SQL OPERATORS(IN , BETWEEN, LIKE, ISNULL
+
+ 
+
+
+ 
