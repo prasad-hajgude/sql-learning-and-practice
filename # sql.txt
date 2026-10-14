@@ -1,0 +1,279 @@
+# sql structured query language WE CAN USE HERE ORACLE
+
+first security , data size is imp
+
+dbms
+database management system
+data must be formed in the rows and columns
+
+data redundancy -it means same data present in the different different places
+
+#RDBMS--SOFTWARE USED FIRST 3 ORACLE , MYSQL , POSTGRESQL,MS-SQL(SQL SERVER)
+
+
+
+#SQL-IT MEANS STRUCTURED QQUERY LANGUAGE
+IT IS THE ONLY LANGUAGE THAT CAN BE USED FOR THE DATABASE
+
+(NOSQL IS USED ONLY FOR WEB APPS)
+
+DESKTOP -APP
+WEB APPS
+
+sql is language that is used to perform operation on data and communicate with database
+
+dbms                                             rdbms
+- it stands for database management system      - it stand s for relationl database management system
+- it does not provide any data security   data security is            high
+-single user system                         multiuser system
+-programmers need to write procedures to perform operations - lots of inbuilt functions are available so no need to write procedures to perform all operations
+
+
+
+       # SQL AND SELECT STATEMENTS  (intro to sql and select
+ # in the sql we can store any type of data like application  data
+
+we can use the sql  because it can provide specific structure or syntax
+ddl , dml dck dql it is divided in this 4 language
+
+# DQL - DATA DEFINATION LANGUAGE
+
+CREATE - IT IS USED TO CREATE NEW OBJECTS IN DB
+ALTER - IT IS USED TO CHANGE THE TABLE STRUCTURE
+DROP - IT IS USED TO DELETE DB OBJECTS
+TRUNCATE- IT WILL ALL RECORDS FROM TABLES
+RENAME- IT IS USED TO RENAME THE TABLE NAME
+
+# DML (DATA MANIPULATION LANGUAGE)
+-insert- it will insert new record in a table
+update- it will change existing data
+delete - it will delete record from table
+
+# dql(DATA QUERY LANGUAGE)
+-select- it will retrieve records from one or more tables
+
+#(dcl)- data control language
+grant= it will allow i.e grant access to user
+revoke - it will remove provided access from user
+
+
+sql and select statement 
+The SELECT command in SQL is used to retrieve or fetch data from a database table
+syntax
+
+SELECT column_name
+FROM table_name;
+ex student table 
+student_id name	age	city	             marks
+1	Prasad	23	     Pune	       85
+2	Rahul	22	     Mumbai	       72
+3	Amit	21	     Pune	       90
+4	Sneha	22	    Nashik	       65
+5	Priya	20	    Mumbai	       78
+
+Q1. write a query to display the student name and their roll number 
+
+select s_name, r_rollno from student;
+
+all columns 
+select * from student;
+
+assignment 
+refer the table student(rollno, name , city, contact, email, bdate , per)
+write a query to display student name  and their contact along with email
+-> 
+
+select name,contact, email from student;
+
+2. write query to display student name, roll no and their percentage
+select name , roll no , per from student;
+
+3. write a query to display student name and their bdate and city 
+-> select name , bdate , city from student;
+
+4.write a query to display student name their roll number and email
+-> select name , rollno, email from student ;
+
+5. write aquery to display student details .
+-> select * from student ;
+
+#Display unique cities..> 
+SELECT DISTINCT city
+FROM student;
+
+very important 
+
+. Important SELECT clauses
+Clause	     Purpose
+SELECT	     Specifies columns
+FROM	      Specifies the table
+WHERE	       Filters rows
+DISTINCT       Removes duplicate results
+ORDER BY      Sorts results
+GROUP BY      Groups rows
+HAVING	      Filters groups
+
+
+#OPERATORS-SQL operators are symbols or keywords used to perform operations on data in a database.
+They help us filter records, compare values, perform calculations, and combine conditions.
+
+ARITHMETIC OPERATORS
+OPERATORS (+,-,*,%)
+COMPARISON(=,<>,>,<,>=,<=)
+LOGICAL(AND , OR , NOT)
+SQL OPERATORS(IN , BETWEEN, LIKE, ISNULL
+
+Arithmetic operator- used to perform mathematical operation 
+
+ --- Addition
+SELECT marks + 5 AS new_marks
+FROM Student;
+
+-- Subtraction
+SELECT marks - 5 AS reduced_marks
+FROM Student;
+
+-- Multiplication
+SELECT marks * 2 AS double_marks
+FROM Student;
+
+-- Division
+SELECT marks / 2.0 AS half_marks
+FROM Student;
+
+-- Modulus (remainder)
+SELECT marks % 2 AS remainder
+FROM Student;
+
+
+3. Comparison Operators
+Used to compare values. They are commonly used in the WHERE clause.
+Operator	Meaning	Example
+=	Equal to	WHERE marks = 80
+<>	Not equal to	WHERE marks <> 80
+!=	Not equal to	WHERE marks != 80
+>	Greater than	WHERE marks > 80
+<	Less than	WHERE marks < 80
+>=	Greater than or equal to	WHERE marks >= 80
+<=	Less than or equal to	WHERE marks <= 80
+
+4)Logical Operators
+Logical operators help you apply multiple conditions.
+AND
+Both conditions must be true.
+SELECT *
+FROM Student
+WHERE marks >= 70 AND marks <= 90;
+
+
+Returns students whose marks are between 70 and 90, inclusive.
+OR
+At least one condition must be true.
+SELECT *
+FROM Student
+WHERE name = 'Amit' OR name = 'Rahul';
+
+
+Returns Amit or Rahul.
+NOT
+Reverses a condition.
+SELECT *
+FROM Student
+WHERE NOT marks >= 80;
+
+
+Returns students with marks below 80, excluding rows where marks are NULL.
+AND vs OR
+Suppose the table contains marks of 60, 75 and 90.
+- marks >= 70 AND marks <= 80 → returns 75.
+- marks < 70 OR marks > 80 → returns 60 and 90.
+
+
+Special Operators
+These operators are very important for SQL assignments and interviews.
+IN
+Checks whether a value matches any value in a list.
+SELECT *
+FROM Student
+WHERE name IN ('Amit', 'Priya');
+
+
+Equivalent to:
+WHERE name = 'Amit' OR name = 'Priya'
+
+
+NOT IN
+Excludes the listed values.
+SELECT *
+FROM Student
+WHERE name NOT IN ('Amit', 'Priya');
+
+
+BETWEEN
+Checks whether a value falls within a range. The endpoints are included.
+SELECT *
+FROM Student
+WHERE marks BETWEEN 70 AND 90;
+
+
+Returns students with marks from 70 through 90.
+LIKE
+Searches for a pattern in text.
+Pattern	Meaning
+'A%'	Starts with A
+'%a'	Ends with a
+'%it%'	Contains it
+'_a%'	Second character is a
+Example:
+SELECT *
+FROM Student
+WHERE name LIKE 'A%';
+
+
+Returns names starting with A.
+% matches zero or more characters, while _ matches exactly one character in standard SQL pattern matching.
+IS NULL
+Checks whether a value is missing (NULL).
+SELECT *
+FROM Student
+WHERE marks IS NULL;
+
+
+To find records where marks are present:
+SELECT *
+FROM Student
+WHERE marks IS NOT NULL;
+
+
+Important: Never use marks = NULL. Use IS NULL instead.
+6. Set Operators
+Set operators combine the results of two SELECT queries.
+Operator	Purpose
+UNION	Combines results and removes duplicates
+UNION ALL	Combines results and retains duplicates
+INTERSECT	Returns rows common to both results
+EXCEPT	Returns rows from the first result that are absent from the second
+Example:
+SELECT city FROM Student
+UNION
+SELECT city FROM Employee;
+
+
+Assignment
+Refer Table:
+Stud_Result(sid, sname, phy_mark, chem_mark, math_mark, comp_mark, rdate)
+1. Write a query to display student name, student ID and their total marks.
+
+-> select s_name,s_id ,phy_marks+chem_mark+math_mark+comp_mark As total_marks from stud_result; 
+
+. Write a query to display student name, total marks and percentage.
+
+ -> select s_name ,phy_marks+chem_mark+math_mark+comp_mark As total_marks ,(phy_marks+chem_mark+math_mark+comp_mark)/4 As Percenatge_marks from stud_result; 
+
+3. Write a query to display student name, physics, chemistry and maths marks and their PCM percentage.
+
+->select s_name,phy_mark,chem_mark,math_mark,(phy_mark+chem_mark+math_mark)/3 as percenatage from stud_result;
+
+4. Write a query to display student name, maths marks and increment maths marks by 2%. 
+select s_name, math_marks,math_marks*1.02 as inccrement_marks from stud_result;
+ 
